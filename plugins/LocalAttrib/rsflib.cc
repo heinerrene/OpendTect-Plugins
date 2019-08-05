@@ -200,9 +200,9 @@ void Triangle::setNull()
 Trianglen::Trianglen(int ndim, int* nbox, int* ndat)
     : dim_(ndim)
     , nd_(1)
-    , n_(new int[dim_])
-    , s_(new int[dim_])
-    , tr_(new Triangle[dim_])
+    , n_(new int[ndim])
+    , s_(new int[ndim])
+    , tr_(new Triangle[ndim])
 {
     for (int i=0; i<dim_; i++) {
         if (nbox[i] > 1)
