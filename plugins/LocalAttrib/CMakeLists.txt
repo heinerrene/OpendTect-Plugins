@@ -1,14 +1,14 @@
-#_______________________Pmake___________________________________________________
 #
-#	Makefile : 	Local Time-Frequency Attribute
-# 	April 2014	Wayne Mogg
-#_______________________________________________________________________________
+#   LocalAttrib Plugin
+#   Copyright (C) 2019  Wayne Mogg
+#
 
 SET(OD_MODULE_DEPS AttributeEngine)
 SET(OD_IS_PLUGIN yes)
 SET(OD_MODULE_SOURCES
 	ltfattrib.cc
-	ltfattribpi.cc
+	localattribpi.cc
+	rsflib.cc
 )
 
 IF( DEFINED ENV{RSFROOT} )
