@@ -17,7 +17,56 @@
  */
 
 #include "rsflib.h"
-#include "cblas.h"
+
+#ifdef NO_BLAS
+void cblas_saxpy(int n, float a, const float *x, int sx, float *y, int sy)
+{
+    int i, ix, iy;
+    
+    for (i=0; i < n; i++) {
+        ix = i*sx;
+        iy = i*sy;
+        y[iy] += a * x[ix];
+    }    
+}
+
+void cblas_sswap(int n, float *x, int sx, float* y, int sy)
+{
+    int i, ix, iy;
+    float t;
+    
+    for (i=0; i < n; i++) {
+        ix = i*sx;
+        iy = i*sy;
+        t = x[ix];
+        x[ix] = y[iy];
+        y[iy] = t;
+    }  
+}
+
+double cblas_dsdot(int n, const float *x, int sx, const float *y, int sy)
+{
+    int i, ix, iy;
+    double dot;
+    
+    dot = 0.;
+    
+    for (i=0; i < n; i++) {
+        ix = i*sx;
+        iy = i*sy;
+        dot += (double) x[ix] * y[iy];
+    }
+    
+    return dot;    
+}
+#else
+#ifdef HAVE_MKL
+#include <mkl.h>
+#else
+#include <cblas.h>
+#endif
+#endif
+
 
 namespace sf {
     
