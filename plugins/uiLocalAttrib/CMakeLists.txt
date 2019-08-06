@@ -3,7 +3,7 @@
 #   Copyright (C) 2019  Wayne Mogg
 #
 
-SET(OD_MODULE_NAME uiLTFAttrib)
+SET(OD_MODULE_NAME uiLocalAttrib)
 SET(OD_IS_PLUGIN 1 )
 SET(OD_MODULE_DEPS uiODMain LocalAttrib uiWGMHelp )
 SET(OD_MODULE_SOURCES 

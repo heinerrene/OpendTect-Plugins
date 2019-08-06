@@ -30,7 +30,7 @@
 
 using namespace Attrib;
 
-mInitAttribUI(uiLTFAttrib,LTFAttrib,"Local Time-Frequency",sKeyFreqGrp())
+mInitAttribUI(uiLTFAttrib,LTFAttrib,"Spectral Decomposition by Local Attribute",sKeyFreqGrp())
 
 
 uiLTFAttrib::uiLTFAttrib( uiParent* p, bool is2d )
@@ -46,7 +46,7 @@ uiLTFAttrib::uiLTFAttrib( uiParent* p, bool is2d )
 	freqfld_->attach( alignedBelow, inpfld_ );
 	freqfld_->box()->doSnap( true );
 	
-	smoothfld_ = new uiLabeledSpinBox( this, tr("Smoothing Radius") );
+	smoothfld_ = new uiLabeledSpinBox( this, tr("Smoothing Radius (samples)") );
 	smoothfld_->box()->setMinValue( 2 );
 	smoothfld_->box()->setStep( 1, true );
 	smoothfld_->attach( alignedBelow, freqfld_ );
@@ -56,7 +56,7 @@ uiLTFAttrib::uiLTFAttrib( uiParent* p, bool is2d )
 	niterfld_->box()->setStep( 10, true );
 	niterfld_->attach( alignedBelow, smoothfld_ );
 	
-	marginfld_ = new uiLabeledSpinBox( this, tr("Margin") );
+	marginfld_ = new uiLabeledSpinBox( this, tr("Margin (samples)") );
 	marginfld_->box()->setMinValue( 0 );
 	marginfld_->box()->setStep( 1, true );
 	marginfld_->attach( alignedBelow, niterfld_ );
